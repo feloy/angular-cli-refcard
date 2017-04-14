@@ -33,9 +33,9 @@
 {\small
 (c) 2017 Philippe MARTIN \url{<contact@elol.fr>}
 
-This work is licensed under the Creative Commons Attribution-Noncommercial-Share
-Alike 3.0 License. To view a copy of this license, visit
-\url{http://creativecommons.org/licenses/by-nc-sa/}
+This work is licensed under the Creative Commons Attribution-Noncommercial-ShareAlike 
+4.0 International License (CC BY-NC-SA 4.0). To view a copy of this license, visit
+\url{http://creativecommons.org/licenses/by-nc-sa/4.0/}
 }
 
 \vspace*{1pt}
@@ -79,7 +79,8 @@ Alike 3.0 License. To view a copy of this license, visit
 
   \vspace{0.6ex}
 
-  {\small Generates an init script to add autocomplete functionality to {\tt ng} commands and subcommands to {\tt bash} or {\tt zsh} shells}
+  {\small Generates an init script to add autocomplete functionality to {\tt ng} commands and subcommands 
+  to {\tt bash} or {\tt zsh} shells}
 
   \vspace{0.6ex}
 
@@ -186,19 +187,150 @@ Alike 3.0 License. To view a copy of this license, visit
 
   \vspace{0.6ex}
 
-\section*{ng xi18n}
-
-\section*{ng eject}
-
 \section*{ng build}
 
-\section*{ng test}
+  \vspace{1ex}
+  {\tt \$ ng build \itt{[build-options...]}\textsuperscript{1} \itt{[options...]}}
+
+  \vspace{0.6ex}
+
+  {\small }
+
+  \vspace{0.6ex}
+
+  \begin{tabular}{L{0.30\linewidth} L{0.70\linewidth}}
+    \tt -{}-stats-json & \small Generates a {\tt dist/stats.json} file for use with https://webpack.github.io/analyse/
+  \end{tabular}
 
 \section*{ng e2e}
 
+  \vspace{1ex}
+  {\tt \$ ng e2e {\small \itt{[build-options...]}\textsuperscript{1} \itt{[serve-options...]}\textsuperscript{2}} \itt{[options...]}}
+
+  \vspace{0.6ex}
+
+  {\small Runs end-to-end tests}
+
+  \vspace{0.6ex}
+
+  \begin{tabular}{L{0.35\linewidth} L{0.65\linewidth}}
+    \tt -{}-config \itt{file} & \small Use a specific config file. Defaults to the protractor config file in {\tt .angular-cli.json} \\
+    \tt -{}-specs \itt{files...} & \small Override specs in the protractor config. Can send in multiple specs by repeating flag \\
+    \tt -{}-element-explorer & \small Start Protractor's Element Explorer for debugging \\
+    \tt -{}-no-webdriver-update & \small Do not try to update webdriver \\
+    \tt -{}-no-serve & \small Do not build and serve the app\textsuperscript{1}\textsuperscript{2} \\
+  \end{tabular}
+
+\section*{ng test}
+
+  \vspace{1ex}
+  {\tt \$ ng test \itt{[options...]}}
+
+  \vspace{0.6ex}
+
+  {\small Runs test suite}
+
+  \vspace{0.6ex}
+
+  \begin{tabular}{L{0.35\linewidth} L{0.65\linewidth}}
+    \tt -{}-no-watch  & \small Do not watch for files changes \\
+    \tt -{}-code-coverage  & \small Output coverage report in {\tt coverage/} \\
+    \tt -{}-config \itt{file} & \small Use a specific config file. Defaults to the protractor config file in {\tt .angular-cli.json} \\
+    \tt -{}-single-run  & \small Run tests only once \\
+    \tt -{}-no-progress  & \small Do not show progress while testing \\
+    \tt -{}-browsers \itt{value} & \small Override on which browsers to test \\
+    \tt -{}-no-colors  & \small Disable colors in output \\
+    \tt -{}-log-level \itt{level} & \small Level of logging (debug, {\bf info}, warn, error) \\
+    \tt -{}-port \itt{value} & \small Port where the web server will be listening \\
+    \tt -{}-reporters \itt{value} & \small List of reporters to use \\
+    \tt -{}-no-sourcemaps  & \small Do not output sourcemaps \\
+    \tt -{}-poll \itt{ms} & \small Enable and define the file watching poll time period \\
+    \tt -{}-app \itt{name} & \small The app to test 
+  \end{tabular}
+
 \section*{ng serve}
 
-\section*{ng generate}
+  \vspace{1ex}
+  {\tt \$ ng serve {\small \itt{[build-options...]}\textsuperscript{1} \itt{[serve-options...]}\textsuperscript{2}}}
+
+  \vspace{0.6ex}
+
+  {\small Builds and serves app, rebuilding on file changes.}
+
+\section*{ng xi18n}
+
+  \vspace{1ex}
+  {\tt \$ ng xi18n \itt{[options...]}}
+
+  \vspace{0.6ex}
+
+  {\small Extracts i18n messages from source code}
+
+  \vspace{0.6ex}
+
+  \begin{tabular}{L{0.35\linewidth} L{0.65\linewidth}}
+    \tt -{}-output-path \itt{dir} & \small Path where output will be placed \\
+    \tt -{}-out-file \itt{file} & \small Name of output file \\
+    \tt -{}-i18n-format \itt{fmt} & \small Output format ({\bf xlf}, xmb)\\
+    \tt -{}-locale \itt{lang} & \small Source language of app \\
+    \tt -{}-verbose  & \small Adds more details to output logging \\
+    \tt -{}-no-progress  & \small Do not show progress while running \\
+    \tt -{}-app \itt{name} & \small The app to extract from 
+  \end{tabular}
+
+\section*{ng eject}
+
+  \vspace{1ex}
+  {\tt \$ ng eject \itt{[build-options...]}\textsuperscript{1} \itt{[options...]}}
+
+  \vspace{0.6ex}
+
+  {\small Outut proper webpack configuration and scripts}
+
+  \vspace{0.6ex}
+
+  \begin{tabular}{L{0.30\linewidth} L{0.70\linewidth}}
+    \tt -{}-force & \small Overwrite any {\tt webpack.config.js} and npm scripts already existing
+  \end{tabular}
+
+\section*{1 Build options}
+
+  \begin{tabular}{L{0.35\linewidth} L{0.65\linewidth}}
+    \tt -{}-target \itt{tgt} & \small Build target ({\bf development}, production)\\
+    \tt -{}-environment \itt{env} & \small Build environment \\
+    \tt -{}-output-path \itt{dir} & \small Path where output will be placed \\
+    \tt -{}-aot & \small Build using Ahead of Time compilation \\
+    \tt -{}-no-sourcemaps & \small Do not output sourcemaps \\
+    \tt -{}-no-vendor-chunk & \small Do not use a separate bundle containing only vendor libraries \\
+    \tt -{}-base-href \itt{bh} & \small Set the base url for the application built \\
+    \tt -{}-deploy-url \itt{url} & \small URL where files will be deployed \\
+    \tt -{}-verbose & \small Adds more details to output logging \\
+    \tt -{}-no-progress & \small Do not show progress while running \\
+    \tt -{}-i18n-file \itt{file} & \small i18n file to use \\
+    \tt -{}-i18n-format \itt{fmt} & \small Format of i18n file\\
+    \tt -{}-locale \itt{lang} & \small Locale to use for i18n \\
+    \tt -{}-extract-css & \small Extract css from global styles onto css files instead of js ones\\
+    \tt -{}-watch & \small Watch for files changes \\
+    \tt -{}-output-hashing \itt{mode} & \small Define the output filename cache-busting hashing mode (none, all, media, bundles)\\
+    \tt -{}-poll \itt{ms} & \small Enable and define the file watching poll time period \\
+    \tt -{}-app \itt{name} & \small The app to build
+  \end{tabular}
+
+\section*{2 Serve options}
+
+
+  \begin{tabular}{L{0.35\linewidth} L{0.65\linewidth}}
+    \tt -{}-port \itt{} & \small Port to listen to (default 4200)\\
+    \tt -{}-host \itt{} & \small Host to listen to (default localhost only)\\
+    \tt -{}-proxy-config \itt{file} & \small Proxy configuration file \\
+    \tt -{}-ssl & \small Serve using HTTPS \\
+    \tt -{}-ssl-key \itt{} & \small SSL key to use for serving HTTPS \\
+    \tt -{}-ssl-cert \itt{} & \small SSL certificate to use for serving HTTPS \\
+    \tt -{}-open & \small Opens the url in default browser \\
+    \tt -{}-no-live-reload & \small Do not reload the page on change, using live-reload \\
+    \tt -{}-live-reload-client \itt{} & \small URL that the live reload browser client will use \\
+    \tt -{}-hmr & \small Enable hot module replacement
+  \end{tabular}
 
 \end{multicols}
 \end{document}
