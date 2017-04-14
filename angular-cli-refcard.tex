@@ -1,0 +1,204 @@
+\documentclass[8pt]{extarticle} % extarticle: font sizes < 10
+\usepackage[
+      pdftitle={angular-cli Reference Card},
+      pdfauthor={Philippe MARTIN},
+      pdfkeywords={angular, cli, Quick Reference, Refcard, Cheat Sheet},
+      pdfsubject={Quick Reference Card for angular-cli}
+]{hyperref}
+
+\usepackage[T1]{fontenc}
+\usepackage{refcards}
+
+\usepackage{vmargin}
+% A4
+\setpapersize[landscape]{A4}
+\setmarginsrb%
+{1.5cm}  % left
+{1.0cm}  % top
+{1.5cm}  % right
+{1.0cm}  % bottom
+{0ex}    % header height
+{0ex}    % header separation
+{0ex}    % footer height
+{0ex}    % footser separation
+\setlength\columnsep{7mm}
+
+\begin{document}
+\raggedright
+
+\begin{multicols}{3}
+
+\title{angular-cli Reference Card}
+
+{\small
+(c) 2017 Philippe MARTIN \url{<contact@elol.fr>}
+
+This work is licensed under the Creative Commons Attribution-Noncommercial-Share
+Alike 3.0 License. To view a copy of this license, visit
+\url{http://creativecommons.org/licenses/by-nc-sa/}
+}
+
+\vspace*{1pt}
+
+\section*{ng help}
+  \vspace{1ex}
+  {\tt \$ ng help \itt{[command-name]}}
+
+  \vspace{0.6ex}
+
+  {\small Shows help for the given command (default all commands)}
+
+\section*{ng version}
+
+  \vspace{1ex}
+  {\tt \$ ng version \itt{[options...]}}
+
+  \vspace{0.6ex}
+
+  {\small Shows versions of cli, node, os and angular packages}
+
+  \vspace{0.6ex}
+
+  \begin{tabular}{L{0.30\linewidth} L{0.70\linewidth}}
+    \tt -{}-verbose & \small Shows more details
+  \end{tabular}
+
+\section*{ng doc}
+
+  \vspace{1ex}
+  {\tt \$ ng doc \itt{keyword}}
+
+  \vspace{0.6ex}
+
+  {\small Opens official Angular API reference for the given keyword}
+
+\section*{ng completion}
+
+  \vspace{1ex}
+  {\tt \$ ng completion \itt{[options...]}}
+
+  \vspace{0.6ex}
+
+  {\small Generates an init script to add autocomplete functionality to {\tt ng} commands and subcommands to {\tt bash} or {\tt zsh} shells}
+
+  \vspace{0.6ex}
+
+  \begin{tabular}{L{0.30\linewidth} L{0.70\linewidth}}
+    \tt -{}-all  & \small script compatible with both {\tt bash} and {\tt zsh} \\
+    \tt -{}-bash & \small script optimized for {\tt bash} \\
+    \tt -{}-zsh  & \small script optimized for {\tt zsh}
+  \end{tabular}
+
+  \vspace{0.6ex}
+
+  {\tt \$ ng completion -{}-bash >{}> \textasciitilde/.bashrc}
+
+  {\tt \$ ng completion -{}-zsh >{}> \textasciitilde/.zshrc}
+
+\section*{ng lint}
+
+  \vspace{1ex}
+  {\tt \$ ng lint \itt{[options...]}}
+
+  \vspace{0.6ex}
+
+  {\small Runs static analysis of project source code}
+
+  \begin{tabular}{L{0.30\linewidth} L{0.70\linewidth}}
+    \tt -{}-fix  & \small Fixes linting errors \\
+    \tt -{}-force  & \small Succeeds (returns 0) even if linting errors \\
+    \tt -{}-format & \small Output format: {\bf prose}, json, stylish, verbose, pmd, msbuild, checkstyle, vso, fileslist \\
+    \tt -{}-type-check & \small Controls the type check for linting
+  \end{tabular}
+
+\section*{ng get}
+
+  \vspace{1ex}
+  {\tt \$ ng get \itt{[options...] \itt{key}}}
+
+  \vspace{0.6ex}
+
+  {\small Returns a value from the {\tt .angular-cli.json} configuration file in json format. {\tt key} must be in json path format}
+
+  \vspace{0.6ex}
+
+  \begin{tabular}{L{0.30\linewidth} L{0.70\linewidth}}
+    \tt -{}-global  & \small Uses global configuration {\tt \textasciitilde/.angular-cli.json}
+  \end{tabular}
+
+  \vspace{0.6ex}
+
+  {\tt \$ ng get project.name}
+
+  {\tt \$ ng get e2e}
+
+\section*{ng set}
+
+  \vspace{1ex}
+  {\tt \$ ng set \itt{[options...] \itt{key}=\itt{value}}}
+
+  \vspace{0.6ex}
+
+  {\small Set a value in the {\tt .angular-cli.json} configuration file. {\tt key} must be in json path format and {\tt value} in json format}
+
+  \vspace{0.6ex}
+
+  \begin{tabular}{L{0.30\linewidth} L{0.70\linewidth}}
+    \tt -{}-global  & \small Uses global configuration {\tt \textasciitilde/.angular-cli.json}
+  \end{tabular}
+
+  \vspace{0.6ex}
+
+  {\tt \$ ng set project.name='my new project name'}
+
+  {\small {\tt \$ ng set e2e='\{"protractor":\{"config":"./protractor.conf.js"\}\}'}}
+
+\section*{ng new}
+
+  \vspace{1ex}
+  {\tt \$ ng new \itt{[options...]} \itt{name}}
+
+  \vspace{0.6ex}
+
+  {\small Creates a new Angular app in a new directory}
+
+  \vspace{0.6ex}
+
+  \begin{tabular}{L{0.30\linewidth} L{0.70\linewidth}}
+    \small{general options} & \\
+    \tt -{}-dry-run & \small Runs without making any changes \\
+    \tt -{}-verbose  & \small Adds more details to output logging \\
+    \small{install options} & \\
+    \tt -{}-directory \itt{dir} & \small The installation directory \\
+    \tt -{}-source-dir \itt{dir} & \small The name of the source directory \\
+    \tt -{}-link-cli & \small Automatically links the angular/cli package \\
+    \tt -{}-skip-install & \small Skip installing packages \\
+    \tt -{}-skip-git & \small Skip initializing a git repository \\
+    \tt -{}-skip-commit & \small Skip committing the first changes to git \\
+    \small{defaults options} & \\
+    \tt -{}-prefix \itt{p} & \small Default prefix for components selectors (\itt{app}) \\
+    \tt -{}-style \itt{s} & \small The style file default extension (\itt{css}) \\
+    \tt -{}-inline-style & \small Components styles will be inlined \\
+    \tt -{}-inline-template & \small Components templates will be inlined \\
+    \tt -{}-skip-tests & \small Skip creating spec files \\
+    \tt -{}-routing & \small Generates routing modules \\
+  \end{tabular}
+
+  \vspace{0.6ex}
+
+\section*{ng xi18n}
+
+\section*{ng eject}
+
+\section*{ng build}
+
+\section*{ng test}
+
+\section*{ng e2e}
+
+\section*{ng serve}
+
+\section*{ng generate}
+
+\end{multicols}
+\end{document}
